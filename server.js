@@ -17,7 +17,7 @@ app.post('/khiem',(req,res) => {
   const {email, password} = req.body;
   if(!email || !password) {
     return res.json({
-      message: "Email or Password is not requied"
+      message: "email or password is required"
     });
   }
   if(Number(password) === 1234567) {
