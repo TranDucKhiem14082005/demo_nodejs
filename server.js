@@ -1,33 +1,8 @@
-const express = require('express')
-const bodyParser = require("body-parser");
-const app = express()
-app.use(bodyParser.json());
-const port = 5000
+const app = require("./src/app/app")
+const appConstants = require("./src/app/constants/app.constant")
 
-app.get('/khiem',(req,res) => {
-  console.log("Client is calling API");
-  res.json({
-    name: "Tran Duc Khiem",
-    age: 19,
-    address: "Nha Trang"
-  })
-})  
+const port = appConstants.PORT;
 
-app.post('/khiem',(req,res) => {
-  const {email, password} = req.body;
-  if(!email || !password) {
-    return res.json({
-      message: "email or password is required"
-    });
-  }
-  if(Number(password) === 1234567) {
-    return res.json({message: "login success"});
-  }
-  return res.json({message: "login fail"});
- 
-  
-  console.log(email,password);
-})  
 
 
 
